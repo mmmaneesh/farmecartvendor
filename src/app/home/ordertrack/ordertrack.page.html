@@ -1,0 +1,43 @@
+
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Track Order</ion-title>
+  </ion-toolbar>
+
+
+<ion-content>
+  <div class="content">
+    <div class="order-details">
+      <div class="order-no">Order# : {{order.id}}</div>
+      <div class="order">
+        <label>{{productPassed.name}}</label>
+      </div>
+    </div>
+    <ul class="timeline" *ngIf="trackData">
+      <li class="completed"><ion-icon name="contrast-outline"></ion-icon>Order Placed</li>
+      <li class="completed"><ion-icon name="contrast-outline"></ion-icon>Order Confirmed</li>
+      <li class="completed" *ngFor="let trackD of trackData"><ion-icon name="contrast-outline"></ion-icon>{{trackD?.REMARKS ? trackD?.REMARKS : trackD?.RECEIVER}}</li>
+     <!-- <li class="shipping completed"><ion-icon name="contrast-outline"></ion-icon>Order Dispatched
+        <div class="time-rider" *ngIf="trackData?.sourceDeliveryhub">
+          <div class="time">
+            <ion-icon name="business-outline"></ion-icon>Source Hub
+            <div class="timer">{{trackData?.sourceDeliveryhub?.name}}</div>
+          </div>
+          <div class="time">
+            <ion-icon name="airplane-outline"></ion-icon>Order Status
+            <div class="timer">{{trackData?.orderStatus?.text}}</div>
+          </div>
+          <div class="time">
+            <ion-icon name="golf-outline"></ion-icon>Destination Hub
+            <div class="timer">{{trackData?.destinationDeliveryhub?.name}}</div>
+          </div>
+        </div>
+      </li>
+      <li><ion-icon name="contrast-outline"></ion-icon>Out for Delivery</li>
+      <li><ion-icon name="contrast-outline"></ion-icon>Delivered</li> -->
+    </ul>
+  </div>
+
+</ion-content>

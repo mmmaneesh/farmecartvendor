@@ -1,0 +1,16 @@
+.form-box {
+    background: #fff;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    .input {
+        width: 230px;
+        letter-spacing: 10px;
+        &::placeholder {
+            color: #ccc;
+        }
+    }
+}

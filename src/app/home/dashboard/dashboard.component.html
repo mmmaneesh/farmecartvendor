@@ -1,0 +1,109 @@
+<!-- <ion-header translucent="true"> -->
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-title *ngIf="!ios && !showSearchbar">Home</ion-title> -->
+    <ion-buttons slot="end">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+        </label>
+    </ion-buttons>
+</ion-toolbar>
+<!-- </ion-header> -->
+<ion-content class="dashoboard ion-padding pt-0">
+    <div class="order-detail">
+        <div class="container">
+            <div class="row below">
+                <div class="col-12 px-0 pb-2">
+                    <h1 class="title">Delivery Request</h1>
+                </div>
+
+                <div class="col-12 p-0">
+                    <div class="strip-list success" (click)="navigator.goto('home/order-detail')">
+                        <div class="upper">
+                            <div class="info">
+                                <label class="pickup">Pickup Address</label>
+                                <p class="location">Vishal Mega Mart,Sector 61,Mohali</p>
+                                <label class="destination">Destination Address</label>
+                                <p class="location">#1255 Backside Cheema Hospital Sector 54,Mohali</p>
+                            </div>
+                            <div class="right">
+                                <label class="status">Pending</label>
+                                <div class="datetime">
+                                    15 May <span class="time">12:15pm</span>
+                                </div>
+                                <a class="link" href="#">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 px-0 pb-2 mt-4">
+                    <h1 class="title">Order List</h1>
+                </div>
+
+                <div class="col-12 p-0">
+                    <div class="strip-list danger" (click)="navigator.goto('home/order-detail')">
+                        <div class="upper">
+                            <div class="info">
+                                <label class="pickup">Pickup Address</label>
+                                <p class="location">Vishal Mega Mart,Sector 61,Mohali</p>
+                                <label class="destination">Destination Address</label>
+                                <p class="location">#1255 Backside Cheema Hospital Sector 54,Mohali</p>
+                            </div>
+                            <div class="right">
+                                <label class="status">Pending</label>
+                                <div class="datetime">
+                                    15 May <span class="time">12:15pm</span>
+                                </div>
+                                <a class="link" href="#">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 p-0">
+                    <div class="strip-list warning" (click)="navigator.goto('home/order-detail')">
+                        <div class="upper">
+                            <div class="info">
+                                <label class="pickup">Pickup Address</label>
+                                <p class="location">Vishal Mega Mart,Sector 61,Mohali</p>
+                                <label class="destination">Destination Address</label>
+                                <p class="location">#1255 Backside Cheema Hospital Sector 54,Mohali</p>
+                            </div>
+                            <div class="right">
+                                <label class="status">Pending</label>
+                                <div class="datetime">
+                                    15 May <span class="time">12:15pm</span>
+                                </div>
+                                <a class="link" href="#">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 p-0">
+                    <div class="strip-list success" (click)="navigator.goto('home/order-detail')">
+                        <div class="upper">
+                            <div class="info">
+                                <label class="pickup">Pickup Address</label>
+                                <p class="location">Vishal Mega Mart,Sector 61,Mohali</p>
+                                <label class="destination">Destination Address</label>
+                                <p class="location">#1255 Backside Cheema Hospital Sector 54,Mohali</p>
+                            </div>
+                            <div class="right">
+                                <label class="status">Pending</label>
+                                <div class="datetime">
+                                    15 May <span class="time">12:15pm</span>
+                                </div>
+                                <a class="link" href="#">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-content>
+    <div class="signin-outer">
+        <div class="inner-sign">
+            <div class="container">
+                <p class="title">OTP Number</p>
+                <form action="#">
+                    <div class="form-group">
+                        <div class="otp">
+                            <input type="tel" id="a" name="a" (keyup)="goNext($event)" />
+                            <input type="tel" id="b" name="b" (keyup)="goNext($event)" />
+                            <input type="tel" id="c" name="c" (keyup)="goNext($event)" />
+                            <input type="tel" id="d" name="d" (keyup)="goNext($event)" />
+                        </div>
+                    </div>
+                </form>
+                <div class="d-flex justify-content-center">
+                    <button style="font-size: 0.9rem;" type="submit" class="text-center signup-btn btn btn-default btn-lg" (click)="checkOtp()">CONTINUE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

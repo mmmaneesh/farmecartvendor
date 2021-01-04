@@ -1,0 +1,2 @@
+<ion-icon name="heart-outline" *ngIf="!filled" size="{{size}}" (click)="fill()"></ion-icon>
+<ion-icon name="heart" *ngIf="filled" size="{{size}}" color="danger" (click)="unfill()"></ion-icon>

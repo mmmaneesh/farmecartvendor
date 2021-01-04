@@ -1,0 +1,105 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Order Detail</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="font-size: 13px;">
+
+    <div>
+        <h4>View order details</h4>
+        <div class="card p-2">
+            <table class="table">
+                <tr>
+                    <td>Date</td>
+                    <td>{{dateFormat(order.date_created)}}</td>
+                </tr>
+                <tr>
+                    <td>Order Number</td>
+                    <td>#{{order.id}}</td>
+                </tr>
+                <tr>
+                    <td>Order total</td>
+                    <td>Rs {{order.total}}</td>
+                </tr>
+            </table>
+
+            <table class="table center-all listed">
+                <tr>
+                    <th>Name</th>
+                    <th>Qty</th>
+                    <th>Packed</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Track</th>
+                </tr>
+                <tr *ngFor="let data of order.line_items ">
+                    <td style="width: 100px;vertical-align: middle;">{{data.name}}</td>
+                    <td style="vertical-align: middle;">{{(data.quantity_order) ? data.quantity_order : data.quantity}}</td>
+                    <td style="vertical-align: middle;">{{data.quantity}}</td>
+                    <td style="vertical-align: middle;">{{data.price | currency:'INR':true}} </td>
+                    <td style="vertical-align: middle;">{{data.price * data.quantity}} </td>
+                    <td><button *ngIf="order.status == 'shipping'" style="font-size: 10px;
+                        font-weight: bold;
+                        border-radius: 4px;
+                        padding: 3px;
+                        border: 1px solid #ddd; vertical-align: middle;margin: 3px;" (click)="trackOrder(data)">Track Order</button></td>
+                </tr>
+            </table>
+
+        </div>
+        <h5 style="color: green;">Status: {{(order.status == 'on-hold') ? 'Pending Approval' : order.status}}</h5>        
+        <button *ngIf="order.status == 'on-hold'" class="btn btn-danger" (click)="cancelOrder()">Cancel Order</button>
+    </div>
+
+
+    <h4>Payment Information</h4>
+    <div class="card p-2">
+        <div class="d-flex" style="justify-content: space-between;">
+            <p>Payment Method</p>
+            <p *ngIf="order.payment_method==='cod'">Cash On Deleviry</p>
+        </div>
+        <div style="border-top: 1px solid #ccc;">
+            <p>Billing Address</p>
+            <p>{{billingAddress.firstname}} {{billingAddress.lastname}}</p>
+            <p>{{billingAddress.address}} {{billingAddress.number}}</p>
+            <p>{{billingAddress.city}}</p>
+            <p>{{billingAddress.country}}</p>
+            <p>{{billingAddress.zipcode}}</p>
+        </div>
+    </div>
+
+
+    <h4>Shipping Address</h4>
+    <div class="card p-2">
+        <p>{{shippingAddress.firstname}} {{shippingAddress.lastname}}</p>
+        <p>{{shippingAddress.address}} {{shippingAddress.zipcode}} <br/> Ph: {{shippingAddress.number}}</p>
+    </div>
+
+    <h4>Order Summary</h4>
+    <div class="card p-2 mb-3">
+        <table class="table mb-0">
+            <tr>
+                <td>Discount</td>
+                <td>{{order.discount | currency:'INR':true}}</td>
+            </tr>
+            <tr>
+                <td>Delivery Charges</td>
+                <td>{{order.shipping_cost | currency:'INR':true}}</td>
+            </tr>
+            <tr>
+                <td>Tax</td>
+                <td>{{order.tax | currency:'INR':true}}</td>
+            </tr>
+            <tr>
+                <td>Total Amount </td>
+                <td>{{order.total | currency:'INR':true}}</td>
+            </tr>
+        </table>
+    </div>
+
+
+</ion-content>

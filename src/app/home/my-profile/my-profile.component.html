@@ -1,0 +1,64 @@
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Profile</ion-title>
+</ion-toolbar>
+<ion-content>
+    <div class="input-group">
+        <div class="profilepic">
+            <div class="pic" *ngIf="app.state.user.user_photo_url == ''  || app.state.user.user_photo_url == null">
+                <img class="user" src="../../../assets/icon/dummy-user.jpg" alt="">
+            </div>
+            <div class="pic" *ngIf="app.state.user.user_photo_url != ''  && app.state.user.user_photo_url != null">
+                <img class="user" [src]="userPic(app.state.user.user_photo_url)" alt="">
+            </div>
+        </div>
+    </div>
+    <ion-item lines="none">
+        <ion-label slot="start" class="label">User Details</ion-label>
+        <ion-icon slot="end" name="pencil-outline" (click)="editProfile()"></ion-icon>
+    </ion-item>
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>{{app.state.user.display_name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{app.state.user.primary_email ? app.state.user.primary_email : ''}}</td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>{{app.state.user.mobile}}</td>
+        </tr>
+    </table>
+
+    <ion-item lines="none">
+        <ion-label slot="start" class="label">Billing Address</ion-label>
+        <ion-icon slot="end" name="pencil-outline" (click)="addbillingAddress()"></ion-icon>
+    </ion-item>
+    <table class="table">
+        <tr>
+            <td>Store Name</td>
+            <td>{{app.state.detail.billing_address.firstname}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{app.state.detail.billing_address.email}}</td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>{{app.state.detail.billing_address.number}}</td>
+        </tr>
+        <tr>
+            <td>Pincode</td>
+            <td>{{app.state.detail.billing_address.zipcode}}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{app.state.detail.billing_address.address}}</td>
+        </tr>
+    </table>
+
+</ion-content>

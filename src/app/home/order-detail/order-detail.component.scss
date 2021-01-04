@@ -1,0 +1,155 @@
+.history {
+    padding: 1%;
+    .order-heading {
+        margin-bottom: 1rem;
+        .left {
+            border-right: 1px solid #c7c7c7;
+            .datetime {
+                font-size: 0.8rem;
+                .time {
+                    font-size: 0.7rem;
+                }
+            }
+        }
+    }
+    .order-status-icons {
+        .light-bg {
+            background: #fcfcfc;
+            position: relative;
+            &:before {
+                position: absolute;
+                content: " ";
+                border-bottom: 2px dotted gainsboro;
+                top: calc( 50% + 5px);
+                width: 70%;
+                height: 1px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            label {
+                font-size: 10px;
+            }
+            .icon {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .inner {
+        margin-bottom: 15px;
+        border: 1px solid #689f38;
+        box-shadow: 1px 2px 5px #0000001a;
+        border-left: 4px solid #689f38;
+        border-radius: 5px;
+        padding: 12px 10px !important;
+        .side label {
+            font-size: 12px !important;
+            color: #689f38;
+            width: 100%;
+        }
+        .side a {
+            color: #000 !important;
+            width: 100%;
+            font-size: 14px !important;
+            font-weight: 500;
+            height: 100% !important;
+        }
+    }
+    small {
+        color: #929292 !important;
+        font-size: 72%;
+    }
+    .side label {
+        color: #3dcea3;
+        font-size: 12px;
+    }
+    span {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 10px;
+    }
+    .box {
+        background: #689f38;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        border-radius: 50%;
+        position: relative;
+        img {
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: 10px;
+        }
+    }
+    .category p {
+        font-size: 14px;
+    }
+    .signup-btn {
+        font-weight: 500;
+        max-width: 220px;
+        padding: 10px 0;
+        border: none;
+        font-size: 16px;
+        display: inline-block;
+    }
+}
+
+.table td {
+    padding: 0 !important;
+    vertical-align: top;
+    border: none !important;
+}
+
+.center-all td {
+    text-align: center;
+}
+
+.card {
+    border: 1px solid #cccc;
+    border: 1px solid #cccc;
+    // padding: 10px 10px 10px 13px;
+}
+
+h4 {
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 0px;
+}
+
+h5 {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+h6 {
+    font-size: 15px;
+    padding: 5px;
+}
+
+p {
+    padding: 0px 5px 5px 10px;
+}
+
+td {
+    padding: 0px 5px 5px 10px;
+}
+
+.table.listed {
+    th,
+    td {
+        padding: 2px;
+        font-size: 11px;
+        text-align: center;
+    }
+}

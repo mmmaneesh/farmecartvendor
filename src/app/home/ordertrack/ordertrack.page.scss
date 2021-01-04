@@ -1,0 +1,97 @@
+.topbar {
+
+    padding-top: 5px;
+
+    .title {
+
+        font-family: 'Popins', sans-serif !important;
+        color: #444;
+    }
+}
+
+.content {
+    .order-details {
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+        .order-no {
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+            padding: 10px;
+        }
+        .order {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        padding-left: 75px;
+        li {
+            color: #999;  
+            padding: 0 0 65px 20px;
+            text-decoration: none;
+            border-left: 2px solid #999;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            position: relative;
+            &.completed {
+                font-weight: bold;
+                border-left: 2px solid  rgba(153, 187, 83, 1);
+                > ion-icon {
+                    position: absolute;
+                    left: -15px;
+                    font-size: 29px;
+                    color:rgba(67,151,65, 1);
+                }  
+            }
+            > ion-icon {
+                position: absolute;
+                left: -15px;
+                font-size: 29px;
+            }  
+            &.shipping { 
+                padding-bottom: 150px;
+                .time-rider {
+                    position: absolute;
+                    display: flex;
+                    top: 30px;
+                    left: 30px;
+                    flex-direction: column;
+                    height: 135px;
+                    justify-content: center;
+                    .time {
+                        font-size: 0.8rem;
+                        margin-bottom: 5px;
+                        font-weight: normal;
+                        ion-icon {
+                            margin-right: 5px;
+                        }
+                        .timer {
+                            font-size: 0.9rem;
+                            color: var(--primary-color);
+                            font-weight: normal;  
+                        }
+                    }        
+                    .rider-outer {
+                        display: flex;
+                        padding-top: 10px;
+                        .rider {
+                            background-size: cover !important;
+                            border-radius: 50%; 
+                        }
+                        .rider-name {
+                            padding:5px 0 0 10px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }  
+            }       
+        }
+        li:last-child {
+            padding-bottom: 0;
+        }
+    }
+}

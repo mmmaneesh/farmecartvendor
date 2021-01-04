@@ -1,0 +1,21 @@
+{
+   "message":"Success",
+   "data":{
+      "_id":"5f9f895b6868747cb0a706b1",
+      "orderStatus":{
+         "_id":"5f1d9cba7d7b7f5e4764d929",
+         "textCode":"ORDERSTATUS03",
+         "text":"Order Intransit",
+         "textType":"ORDERSTATUS",
+         "__v":0
+      },
+      "sourceDeliveryhub":{
+         "_id":"5f5524720a3a1d016320ca0f",
+         "name":"Thrissur"
+      },
+      "destinationDeliveryhub":{
+         "_id":"5f9f88ac6868747cb0a706ae",
+         "name":"test hub"
+      }
+   }
+}

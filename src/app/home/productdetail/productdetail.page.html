@@ -1,0 +1,57 @@
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        Product Detail
+    </ion-title>
+</ion-toolbar>
+
+
+<ion-content id="theScrollEl" #theScrollEl>
+    <div class="product-detail-page">
+        <div class="product-image-outer">
+            <div class="product-image" *ngIf="images.length > 0">
+                <ion-slides pager="true" [options]="slideOpts">
+                    <ion-slide *ngFor="let img of images">
+                        <img [src]="img" />
+                    </ion-slide>
+                </ion-slides>
+            </div>
+        </div>
+
+        <div class="product-detail pb-0">
+            <div class="d-block">
+                <h3>{{product.title}}</h3>
+                <div class="d-block"><small>Seller : </small><strong>{{product.vendor.display_name}}</strong></div>
+                <div class="d-block manufacturer" *ngIf="manufacturer"><small>Company / Manufacturer : </small><strong>{{manufacturer.name}}</strong></div>
+            </div>
+        </div>
+        <div class="product-quantity-price">
+            <div class="mrp-price">
+                <label>M.R.P : </label><span><s><i class="fa fa-rupee"></i>{{product.regular_price | number:'1.2'}}</s></span>
+            </div>
+            <div class="product-price">
+                <label>Price : </label><span><i class="fa fa-rupee"></i>{{(product.sale_price)  | number:'1.2'}}</span><small *ngIf="deliveryCharge"> + <i class="fa fa-rupee"></i> {{deliveryCharge}} Delivery charge</small>
+            </div>
+            <div class="product-quantity">
+                <label>Stock Qty</label>
+                <button (click)="decQty()">-</button><input class="text-qty" [(ngModel)]="qty" type="tel" value="1" step="1" readonly ><button (click)="incQty()" >+</button>
+                <span *ngIf="!isInStock(product)" class="error">Out of stock</span>
+            </div>       
+        </div>
+    </div>
+
+    <div class="product-description" (click)="showProdDesc=!showProdDesc">
+        <h4>Product Description<ion-icon [name]="showProdDesc ? 'chevron-down-outline' : 'chevron-up-outline'"></ion-icon></h4>
+        <p class="mb-0" [ngClass]="{'show': showProdDesc}" innerHtml="{{ htmlDecode(product.content)}}"></p>
+    </div>
+<!-- <div class="addtocart-outer">
+    <div class="addtocart" (click)="addToCart()" >
+        ADD TO CART
+    </div>
+    <div class="checkout" (click)="addToCheckout()">
+        BUY NOW
+    </div>
+</div> -->
+</ion-content>

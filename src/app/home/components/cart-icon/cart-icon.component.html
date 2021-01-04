@@ -1,0 +1,7 @@
+<div class="trolley" (click)="gotoCart()">
+    <!-- <img src="../../assets/img/trolley.png" alt="cart" height="18px" width="18px"> -->
+    <ion-icon name="cart-outline"></ion-icon>
+    <div class="dot" *ngIf="cart.products.length > 0">
+        <span>{{cart.products.length}}</span>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{cat.name}}</ion-title>
+    <!-- <ion-searchbar></ion-searchbar> -->
+</ion-toolbar>
+<ion-content>
+
+    <div class="purchase-home-page" id="products">
+        <div class="upper">
+            <div class="product-outer" *ngIf="products != null && products.length > 0">
+                <div class="product row">
+                    <div class="col-6 px-3" *ngFor="let product of products">
+                        <div class="product-names-outer">
+                            <div class="product-names">
+                                <div class="image-outer-box" (click)="productDetail(product)">
+                                    <div class="image-box">
+                                        <img src="{{restApi.domain}}{{product.image_url}}">
+                                    </div>
+                                </div>
+                                <h1 class="product-name" (click)="productDetail(product)">{{product.title}}</h1>
+                                <div class="product-price-outer">
+                                    <div class="mrp-price">
+                                        M.R.P <span><s><i class="fa fa-rupee"></i>{{product.regular_price | number:'1.2'}}</s></span>
+                                    </div>
+                                    <div class="product-price" (click)="productDetail(product)">
+                                        Rs <b>{{productPrice(product)}}</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="w-100 d-flex justify-content-center" *ngIf="current_page < last_page">
+                    <button class="btn btn-sm btn-primary" (click)="loadMore()">Load More</button>
+                </div> -->
+            </div>
+
+            <ion-spinner name="crescent" *ngIf="(products == null || products.length == 0) && fetchingProducts">
+            </ion-spinner>
+            <div *ngIf="(products == null || products.length == 0) && fetchingProducts == false">No products found</div>
+        </div>
+    </div>
+</ion-content>

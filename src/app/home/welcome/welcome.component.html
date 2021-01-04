@@ -1,0 +1,80 @@
+<!-- Default Refresher -->
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullFactor="0.5" pullMin="50" pullMax="100">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+    <!-- <ion-grid>
+        <ion-row>
+            <ion-col class="search-wrap">
+                <ion-searchbar placeholder="Search Product by Brand or Categories" (ionChange)="onSearchChange($event)" #searchProduct></ion-searchbar>
+                <ion-list *ngIf="searchProductsList.length > 0">
+                    <ion-item *ngFor="let srchPrdct of searchProductsList" (click)="gotoCat(srchPrdct.categories[0])">{{srchPrdct?.title}}</ion-item>
+                </ion-list>          
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="search-wrap">
+                <ion-input placeholder="Enter your PIN for product availability" value="{{pinValue}}" maxlength="6"  (keyup)="checkPincode($event);" (keydown)="checkIfNumber($event);"></ion-input>      
+            </ion-col>
+        </ion-row>
+    </ion-grid> 
+    
+
+    <ion-slides [options]="slideOpts" *ngIf="slidesList.length > 1" class="home-banner">
+        <ion-slide>
+            <img class="{{bannerMainShow}}" src="{{restApi.domain}}{{mainBanner[0].image_url}}" title="{{mainBanner[0].name}}" alt="{{mainBanner[0].name}}" />
+        </ion-slide>
+        <img class="img-preloader" src="{{restApi.domain}}{{mainBanner[1].image_url}}" title="{{mainBanner[1].name}}" alt="{{mainBanner[1].name}}" />
+    </ion-slides>-->
+
+    <ion-slides pager="false" [options]="categoryOpts" *ngIf="categoriesMenu.length > 1" class="swipe-category">
+        <ion-slide *ngFor="let category of categoriesMenu">
+            <div class="wrap-img-name">
+                <img src="{{restApi.domain}}{{category.category_img_url}}" (click)="gotoCat(category)" title="{{category.name}}" alt="{{category.name}}" />
+                <label>{{category.name}}</label>
+            </div>
+        </ion-slide>
+    </ion-slides>
+    
+
+    <ion-slides [options]="slideOptsProduct" *ngIf="productsBanner.length > 0" class="product-banner">
+        <ion-slide (ionChange)="productDetail(product)">
+            <img class="{{bannerDealShow}}" src="{{restApi.domain}}{{productBanner(fadeBanner[0])}}" (click)="productDetail(fadeBanner[0])" title="{{fadeBanner[0].title}}" alt="{{fadeBanner[0].title}}" />
+        </ion-slide>
+        <img class="img-preloader" src="{{restApi.domain}}{{productBanner(fadeBanner[1])}}" title="{{fadeBanner[1].title}}" alt="{{fadeBanner[1].title}}" />
+    </ion-slides>
+    <ng-container *ngFor="let homeCategoryProduct of homeCategories">
+        <ion-grid class="organic-farming" *ngIf="homeCategoryProduct?.productsHome && homeCategoryProduct?.productsHome.length > 0">
+            <ion-row>
+                <ion-col class="product-slides-wrapper">
+                    <ion-title>{{homeCategoryProduct.name}}</ion-title>
+                    <ion-slides pager="false" [options]="productOpts" #slides>
+                        <ion-slide *ngFor="let product of homeCategoryProduct.productsHome">
+                            <div class="product-names-outer">
+                                <div class="product-names">
+                                    <div class="image-outer-box" (click)="productDetail(product)">
+                                        <div class="image-box">
+                                            <img src="{{restApi.domain}}{{product.image_url}}">
+                                        </div>
+                                    </div>
+                                    <h4 class="product-name" (click)="productDetail(product)">{{product.title}}</h4>
+                                    <p (click)="productDetail(product)" class="shop-address" *ngIf="product.categories && product.categories.length > 0"><span class="category">{{product.categories[0].name}}</span>
+                                    </p>
+                                    <div class="product-price-outer">
+                                        <div class="product-price" (click)="productDetail(product)">
+                                            Rs <b>{{productPrice(product) * product.display_qty}}</b>&nbsp; <s *ngIf="product.regular_price != '' && productPrice(product) != product.regular_price">Rs {{product.regular_price * product.display_qty}}</s>
+                                        </div>
+                                        <app-heart [product]="product" [size]="'small'"></app-heart>
+                                    </div>
+                                </div>
+                            </div>
+                        </ion-slide>
+                    </ion-slides>
+                    <ion-button (click)="slides.slidePrev()" class="prev"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+                    <ion-button (click)="slides.slideNext()" class="next"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ng-container>
+    <!-- <ion-item *ngIf="(products == null || products.length == 0) && fetchingProducts == false">No products found</ion-item>    -->
+</ion-content>

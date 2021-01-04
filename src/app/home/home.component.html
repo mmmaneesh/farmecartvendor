@@ -1,0 +1,141 @@
+<ion-split-pane contentId="main-content">
+
+    <ion-menu contentId="main-content">
+        <ion-header class="ion-no-border">
+            <ion-menu-toggle autoHide="false">
+                <ion-toolbar class="ion-header-toolbar menu-header">                
+                    <ion-title routerLink="/home" routerLinkActive="active" routerDirection="forward"
+                    detail="false">
+                    <!-- <ion-icon name="home-outline"></ion-icon><ion-label>Home</ion-label> -->
+                    FARMECART</ion-title>
+                </ion-toolbar>
+            </ion-menu-toggle>
+        </ion-header>
+        <ion-content class="main-menu">
+            <ion-list lines="none">                    
+                <!-- <ion-list-header>
+                    <ion-menu-toggle autoHide="false">
+                        <div class="w-100">{{app.state.user.display_name}}</div>
+                        <small>Pincode: {{app.state.detail ? (app.state.detail.shipping_address ?  app.state.detail.shipping_address.zipcode : "******")  : "******"}} <span class="changePincode" routerLink="/home/myProfile" routerLinkActive="active" routerDirection="root" detail="false">(change)</span></small>
+                    </ion-menu-toggle> 
+                    
+                </ion-list-header> -->
+                <ion-menu-toggle autoHide="false" *ngFor="let catMenu of categoriesMenu">
+                    <ion-item (click)="gotoCat(catMenu)">
+                        <ion-thumbnail slot="start">
+                            <ion-img [src]="restApi.domain + (catMenu.category_menu_img_url ? catMenu.category_menu_img_url : catMenu.category_img_url)" *ngIf="catMenu.category_img_url">
+                            </ion-img>
+                        </ion-thumbnail>
+                        <ion-label>
+                            {{catMenu.name}}
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle autoHide="false">
+                    <ion-item (click)="gotoCat()">
+                        <ion-icon name="return-down-forward-outline"></ion-icon>
+                        <ion-label><strong class="view-all">View All Categories</strong></ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+            <ion-list lines="none">
+                <ion-menu-toggle autoHide="false">
+                    <ion-item routerLink="/home/myProfile" routerLinkActive="active" routerDirection="forward"
+                        detail="false">
+                        <!-- <ion-thumbnail slot="start">
+                            <ion-img src="assets/img/my-account.png">
+                            </ion-img>
+                        </ion-thumbnail> -->
+                        <ion-icon slot="start" name="person"></ion-icon>
+                        <ion-label>
+                            My Account
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle autoHide="false">
+                    <ion-item routerLink="/home/myProfile" routerLinkActive="active" routerDirection="forward"
+                        detail="false">
+                        <!-- <ion-thumbnail slot="start">
+                            <ion-img src="assets/img/rewards.png">
+                            </ion-img>
+                        </ion-thumbnail> -->
+                        <ion-icon slot="start" name="wallet-outline"></ion-icon>
+                        <ion-label>
+                            Rewards
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle autoHide="false">
+                    <ion-item routerLink="/home/orderhistory" routerLinkActive="active" routerDirection="forward"
+                        detail="false">
+                        <!-- <ion-thumbnail slot="start">
+                            <ion-img src="assets/img/my-orders.png">
+                            </ion-img>
+                        </ion-thumbnail> -->
+                        <ion-icon slot="start" name="alarm-outline"></ion-icon>
+                        <ion-label>
+                            My Orders (History)
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle autoHide="false">
+                    <ion-item routerLink="/home/contactus" routerLinkActive="active" routerDirection="forward"
+                        detail="false">
+                        <ion-icon slot="start" name="at-circle-outline"></ion-icon>
+                        <ion-label>
+                            Contact Us
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle autoHide="false">
+                    <ion-item button (click)="logout()" detail="false">
+                        <ion-icon slot="start" name="log-out"></ion-icon>
+                        <ion-label>
+                            Logout
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+
+    <ion-router-outlet id="main-content">
+        <!-- <ion-toolbar style="--min-height:  0;">
+            <div class="wallet-box"> <strong>Wallet : </strong> ₹ {{ app?.state?.user?.wallet }}</div>
+        </ion-toolbar> -->
+        <!-- <app-pincode-outer *ngIf="app.state.pincode == null"></app-pincode-outer> -->
+        <ion-header class="ion-no-border ion-header">
+            <ion-toolbar class="ion-header-toolbar">
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title routerLink="/home" class="title">FARMECART</ion-title>
+                <div slot="end" class="d-flex align-items-center">
+                    <ion-icon name="mic" (click)="speechCheck()" class="mic-icon"></ion-icon>                     
+                    <div class="profile-icon" routerLink="/home/myProfile" large>
+                        <ion-icon name="person-outline"></ion-icon>
+                    </div>
+                    <app-cart-icon></app-cart-icon>
+                </div>
+                <!-- <ion-list *ngIf="speechArray.length > 0">
+                    <ion-item *ngFor="let srchPrdct of speechArray">{{srchPrdct}}</ion-item>
+                </ion-list> -->
+            </ion-toolbar>
+        </ion-header>
+    </ion-router-outlet>
+    <div class="speech-captured-list" (click)="searchCapturedList=[]" *ngIf="searchCapturedList.length > 0">
+        <div>
+            <ion-label>Captured texts<span (click)="searchCapturedList=[]">X</span></ion-label>
+            <ion-list>
+                <ion-item *ngFor="let srchCaptured of searchCapturedList" (click)="onSpeechWordClick(srchCaptured);  ">{{srchCaptured}}</ion-item>
+            </ion-list>
+        </div>
+    </div>
+    <div class="speech-product-list" (click)="searchProductsList=[]" *ngIf="searchProductsList.length > 0">
+        <ion-list>
+            <ion-item *ngFor="let srchPrdct of searchProductsList" (click)="srchPrdct?.title ? gotoCat(srchPrdct.categories[0]) : (searchProductsList=[])">{{srchPrdct?.title ? srchPrdct?.title : 'no result found'}}</ion-item>
+        </ion-list>
+    </div>
+</ion-split-pane>

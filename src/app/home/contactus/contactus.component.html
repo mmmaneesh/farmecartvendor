@@ -1,0 +1,54 @@
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
+</ion-toolbar>
+<ion-content>
+    <div class="form-outer">
+        <div class="form">
+            <div>
+                <input type="name" [(ngModel)]="form.name" placeholder="Name" style="text-transform: capitalize;">
+            </div>
+            <div>
+                <input type="email" [(ngModel)]="form.email" placeholder="Email" style="text-transform: lowercase;">
+            </div>
+            <div>
+                <input type="tel" [(ngModel)]="form.mobile" placeholder="Phone Number">
+            </div>
+            <div>
+                <textarea name="Feedback" [(ngModel)]="form.content" id="Feedback" cols="30" rows="5">Type message here...</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="submit-button-outer">
+        <div class="submit-button" (click)="submit()">
+            SUBMIT
+        </div>
+    </div>
+    <a href="https://www.facebook.com/110169590665290/posts/110170333998549/?substory_index=0&app=fbl">
+        <ion-item>
+            <img src="../../../../assets/icon/facebook.png" width="25px" />
+            <ion-label class="pl-4">
+                Facebook
+            </ion-label>
+        </ion-item>
+    </a>
+    <a href="https://instagram.com/farmecart?igshid=w46k6ccx93by">
+        <ion-item>
+            <img src="../../../../assets/icon/instagram.png" width="25px" />
+            <ion-label class="pl-4">
+                Instagram
+            </ion-label>
+        </ion-item>
+    </a>
+
+    <a href="whatsapp://send?phone=919809248886">
+        <ion-item>
+            <img src="../../../../assets/icon/whatsapp.png" width="25px" />
+            <ion-label class="pl-4">
+                Whatsapp
+            </ion-label>
+        </ion-item>
+    </a>
+</ion-content>

@@ -1,0 +1,81 @@
+.dashoboard {
+    .order-detail {
+        .title {
+            font-size: 1.15rem;
+        }
+        .strip-list {
+            margin-bottom: 15px;
+            box-shadow: 1px 0px 7px 2px #0000001a;
+            border-radius: 5px;
+            display: flex;
+            &.danger {
+                border-left: 4px solid #fe6e39;
+                .status {
+                    color: #fe6e39;
+                }
+            }
+            &.warning {
+                border-left: 4px solid #fbc002;
+                .status {
+                    color: #fbc002;
+                }
+            }
+            &.success {
+                border-left: 4px solid #3dcea3;
+                .status {
+                    color: #3dcea3;
+                }
+            }
+            .upper {
+                display: flex;
+                padding: 5px !important;
+                .info {
+                    padding: 0 0.5rem;
+                    flex: 1;
+                    .pickup {
+                        font-size: 0.7rem;
+                        display: block;
+                        margin-bottom: 0;
+                    }
+                    .destination {
+                        margin-top: 10px;
+                        font-size: 0.7rem;
+                        display: block;
+                        margin-bottom: 0;
+                    }
+                    .location {
+                        font-size: 10px;
+                        line-height: 13px;
+                        font-weight: 600;
+                        margin-bottom: 10px;
+                    }
+                }
+                .right {
+                    background: #fff;
+                    border-left: 1px solid #c7c7c7;
+                    padding: 0 5px;
+                    .datetime {
+                        font-size: 0.8rem;
+                        margin-bottom: 8px;
+                        .time {
+                            font-size: 0.7rem;
+                        }
+                    }
+                    .status {
+                        font-size: 12px !important;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .link {
+                        color: #000 !important;
+                        width: 100%;
+                        display: block;
+                        font-size: 14px !important;
+                        text-align: center;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

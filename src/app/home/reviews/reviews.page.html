@@ -1,0 +1,114 @@
+<ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        Reviews
+    </ion-title>
+</ion-toolbar>
+
+<ion-content>
+    <div class="review-box">
+        <div class="reviews-main-outer" *ngFor="let x of reviews">
+            <div class="reviews-main">
+                <div>
+                    <div class="logo" *ngIf="x.user.user_photo_url == '' || x.user.user_photo_url == null">
+                        {{x.user.display_name[0]}}
+                    </div>
+                    <div class="squareImage" *ngIf="x.user.user_photo_url != '' && x.user.user_photo_url != null" appBgImg [src]="restApi.domain + '/public/uploads/' + x.user.user_photo_url">
+                    </div>
+                </div>
+                <div class="name-stars">
+                    <div class="name">
+                        <b>{{displayname(x)}}</b>
+                    </div>
+                    <div class="stars">
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="x.rating >= 1" alt="star" height="15px" width="15px" (click)="star(1)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="x.rating  < 1" alt="star" height="15px" width="15px" (click)="star(1)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="x.rating >= 2" alt="star" height="15px" width="15px" (click)="star(2)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="x.rating  < 2" alt="star" height="15px" width="15px" (click)="star(2)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="x.rating >= 3" alt="star" height="15px" width="15px" (click)="star(3)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="x.rating  < 3" alt="star" height="15px" width="15px" (click)="star(3)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="x.rating >= 4" alt="star" height="15px" width="15px" (click)="star(4)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="x.rating  < 4" alt="star" height="15px" width="15px" (click)="star(4)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="x.rating >= 5" alt="star" height="15px" width="15px" (click)="star(5)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="x.rating  < 5" alt="star" height="15px" width="15px" (click)="star(5)" />
+                        </div>
+                    </div>
+                </div>
+                <div class="date">
+                    <div>{{humanifyDate(x.created_at)}}</div>
+                    <div *ngIf="x.user.id == app.state.user.id" class="pull-right"><button class="btn btn-sm btn-danger" (click)="startEdit(x)">Edit</button></div>
+                </div>
+
+            </div>
+
+            <div class="comment">
+                {{x.content}}
+            </div>
+        </div>
+
+        <div class="w-100 d-flex justify-content-center" *ngIf="current_page < last_page && !fetching">
+            <button class="btn btn-sm btn-primary" (click)="loadMore()">Load More</button>
+        </div>
+
+        <div class="w-100 d-flex justify-content-center">
+            <ion-spinner name="crescent" *ngIf="(reviews == null || reviews.length == 0) && fetching"></ion-spinner>
+        </div>
+
+        <div *ngIf="(reviews == null || reviews.length == 0) && fetching == false" style="text-align: center;">No review found</div>
+    </div>
+    <div class="write-review">
+        <div class="reviews-main-outer">
+            <div class="reviews-main">
+                <div class="name-stars">
+                    <div class="stars justify-content-center">
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="selected_rating_value >= 1" alt="star" height="30px" width="30px" (click)="star(1)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="selected_rating_value  < 1" alt="star" height="30px" width="30px" (click)="star(1)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="selected_rating_value >= 2" alt="star" height="30px" width="30px" (click)="star(2)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="selected_rating_value  < 2" alt="star" height="30px" width="30px" (click)="star(2)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="selected_rating_value >= 3" alt="star" height="30px" width="30px" (click)="star(3)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="selected_rating_value  < 3" alt="star" height="30px" width="30px" (click)="star(3)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="selected_rating_value >= 4" alt="star" height="30px" width="30px" (click)="star(4)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="selected_rating_value  < 4" alt="star" height="30px" width="30px" (click)="star(4)" />
+                        </div>
+                        <div>
+                            <img src="../../../assets/img/star.png" *ngIf="selected_rating_value >= 5" alt="star" height="30px" width="30px" (click)="star(5)" />
+                            <img src="../../../assets/img/star_empty.png" *ngIf="selected_rating_value  < 5" alt="star" height="30px" width="30px" (click)="star(5)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="review-text-submit">
+            <div class="text">
+                <textarea [(ngModel)]="product_review_content" type="text" placeholder="Please write your review"></textarea>
+            </div>
+            <div>
+                <div class="submit" (click)="saveComments()" *ngIf="!isEdit">
+                    SUBMIT
+                </div>
+                <div class="submit" (click)="updateComments()" *ngIf="isEdit">
+                    Update
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

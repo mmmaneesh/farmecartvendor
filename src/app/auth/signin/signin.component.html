@@ -1,0 +1,32 @@
+<ion-content>
+    <div class="signin-outer">
+        <div class="intro-screen" [ngClass]="{'hide': !intro}">
+            <div class="wrap-logo-caption">
+                <h1><img src="assets/img/icon.png" /></h1>
+                <div class="caption">FARM IS NOT FAR FROM HOME</div>
+            </div>
+            <div class="copyright">Copyright 2020 @farmecart.in, All Rights Reserved</div>
+        </div>
+        <div class="inner-sign" *ngIf="!intro">
+            <div class="container">
+                <p class="title">Please enter the registered mobile number to start the vendor application</p>
+                <form action="#">
+                    <div class="form-group">
+                        <div class="d-flex align-items-center main">
+                            <div style="flex:1">
+                                <input name="mobilenumber" type="tel" [(ngModel)]="signin.mobile" (keyup)="validateMobile()" (keydown)="onlynumber($event)" class="form-control text-center" placeholder="Mobile Number" />
+                            </div>
+                            <div *ngIf="isMobileTouch">
+                                <i class="fa fa-check" aria-hidden="true" *ngIf="isMobileVaild"></i>
+                                <i class="fa fa-times" aria-hidden="true" *ngIf="!isMobileVaild"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit " class="text-center signup-btn btn btn-default btn-lg" (click)="login()">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ion-content>

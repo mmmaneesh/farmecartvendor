@@ -1,0 +1,95 @@
+@import '../../../theme/variables.scss';
+.signin-outer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    background-color: #fff;
+   // background-image: url('../../../assets/img/Selection_001.png');
+    background-position: bottom;
+    background-size: auto;
+    background-repeat: no-repeat;
+    p.title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin: 1.25rem 0;
+        color: #000;
+    }
+    .intro-screen, .inner-sign {
+        transition: all 1s ease-in;
+        &.hide {
+            opacity: 0;
+            height: 0;
+        }
+        position: relative;
+        height: 100vh;
+        display: flex;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        div {
+            text-align: center;
+            &.copyright {
+                position: absolute;
+                bottom: 0;
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
+        .caption {
+            font-weight: bold;
+            color: #ff6600;
+        }
+    }
+    .container {
+        margin: 0 auto;
+        max-width: 600px;
+        padding: 0 30px;
+    }
+    .form-control {
+        flex: 1;
+        font-size: 1.5rem !important;
+        &:focus {
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
+    .form-group {
+        margin-bottom: 2.4rem;
+        padding-top: 15%;
+        label {
+            margin-bottom: 5px;
+            font-size: 1.25rem;
+        }
+        .main {
+            border-bottom: 1px solid #c1c1c17a;
+            .fa-check:before {
+                color:var(--primary-color);
+            }
+            i.fa.fa-times {
+                color:var(--primary-color);
+            }
+        }
+    }
+    form {
+        margin: 0 auto;
+        max-width: 600px;
+        width: 100%;
+    }
+     ::placeholder {
+        color: #b6b6b6 !important;
+    }
+    input {
+        font-size: 14px !important;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        height: 40px;
+        border-radius: 0;
+        padding: 0px;
+        color: $secondary-color;
+    }    
+}

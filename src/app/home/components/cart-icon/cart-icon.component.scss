@@ -1,0 +1,32 @@
+.trolley {
+    //background-color: #689f38;
+    padding: 2px 7px;
+    margin: 0 10px;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    img {
+        filter: invert(1);
+    }
+    .dot {
+        border-radius: 50%;
+        overflow: hidden;
+        font-size: 0.5rem;
+        color: #fff;
+        background-color: red;
+        height: 15px;
+        width: 15px;
+        line-height: 15px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: -5px;
+        right: -5px;
+        position: absolute;
+    }
+}
+ion-icon {
+    font-size: 22px;
+}

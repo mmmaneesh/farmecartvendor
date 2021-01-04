@@ -1,0 +1,35 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+  </ion-buttons>
+  <ion-title>SHOP BY CATEGORIES</ion-title>
+  <!-- <ion-searchbar></ion-searchbar> -->
+</ion-toolbar>
+<ion-content>
+
+  <div class="purchase-home-page" id="categories">
+      <div class="upper">
+        <div class="category-outer">
+          <div class="category row">
+              <div class="col-6 px-3" *ngFor="let cat of categoriesMenu">
+                  <div class="category-names">
+                      <div class="image-outer-box" (click)="gotoCat(cat)">
+                          <div class="image-box">
+                              <img [src]="restApi.domain + cat.category_img_url" *ngIf="cat.category_img_url">
+                          </div>
+                      </div>
+                      <h3 class="category-name" (click)="gotoCat(cat)">{{cat.name}}</h3>
+                      <span>({{cat.productCount}})</span>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="w-100 d-flex justify-content-center" *ngIf="current_page < last_page">
+              <button class="btn btn-sm btn-primary" (click)="loadMore()">Load More</button>
+          </div> -->
+        </div>
+            <ion-spinner name="crescent" *ngIf="(categoriesMenu == null || categoriesMenu.length == 0) && fetchingCategories">
+            </ion-spinner>
+      <div *ngIf="(app.state.categories == null || app.state.categories.length == 0)">No categories found</div>
+      </div>
+  </div>
+</ion-content>

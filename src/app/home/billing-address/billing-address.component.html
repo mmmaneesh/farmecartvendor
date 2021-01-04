@@ -1,0 +1,110 @@
+<ion-toolbar>
+    <ion-buttons slot="start" *ngIf="!isFromCheckout">
+        <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Billing Address</ion-title>
+</ion-toolbar>
+<ion-content>
+    <form class="personalForm" [formGroup]="billingform">
+        <ion-item lines="none">
+            <ion-label position="floating">Store Name</ion-label>
+            <ion-input formControlName="firstname" style="text-transform: capitalize;" required></ion-input>
+            <ion-icon class="inputfields" slot="start" name="person"></ion-icon>
+
+        </ion-item>
+        <div *ngIf="billingform.controls.firstname.invalid  && isSubmit" class="error">
+            Please enter store name.
+        </div>
+        <!-- <ion-item lines="none">
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input formControlName="lastname" style="text-transform: capitalize;" required></ion-input>
+            <ion-icon class="inputfields" slot="start" name="person"></ion-icon>
+
+        </ion-item>
+        <div *ngIf="billingform.controls.lastname.invalid  && isSubmit" class="error">
+            Please enter last name.
+        </div> -->
+
+        <ion-item lines="none">
+            <ion-label position="floating">Email Address</ion-label>
+            <ion-input formControlName="email" style="text-transform: lowercase;" readonly></ion-input>
+            <ion-icon class="inputfields" name="mail" slot="start"></ion-icon>
+        </ion-item>
+        <div *ngIf="billingform.controls.email.invalid  && isSubmit" class="error">
+            Please enter valid email.
+        </div>
+
+        <ion-item lines="none">
+            <ion-label position="floating">Phone Number</ion-label>
+            <ion-input class="item" formControlName="number" type="tel" readonly></ion-input>
+            <ion-icon class="inputfields" slot="start" name="phone-portrait"></ion-icon>
+
+        </ion-item>
+        <div *ngIf="billingform.controls.number.invalid && isSubmit " class="error">
+            Please enter valid number.
+        </div>
+        <ion-item lines="none" class="select">
+            <ion-icon class="label" slot="start" name="globe-outline"></ion-icon>
+            <ion-select placeholder="Please select your country" formControlName="country" mode="ios" required>
+                <ion-select-option value="india">India</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <div *ngIf="billingform.controls.country.invalid  && isSubmit" class="error">
+            Please enter country.
+        </div>
+
+
+
+        <ion-item lines="none">
+            <ion-label position="floating">Address Line 1</ion-label>
+            <ion-textarea class="item" formControlName="address" style="border-bottom: 2px solid #ccc;" required>
+            </ion-textarea>
+            <ion-icon class="inputfields" slot="start" name="home"></ion-icon>
+        </ion-item>
+        <div *ngIf="billingform.controls.address.invalid  && isSubmit" class="error">
+            Please enter valid address.
+        </div>
+
+
+        <ion-item lines="none">
+            <ion-label position="floating">Town/City</ion-label>
+            <ion-input class="item" formControlName="city" style="text-transform: capitalize;" required></ion-input>
+            <ion-icon class="inputfields" slot="start" name="home"></ion-icon>
+
+        </ion-item>
+        <div *ngIf="billingform.controls.city.invalid  && isSubmit" class="error">
+            Please enter town/city.
+        </div>
+        <!-- <ion-item lines="none">
+            <ion-label position="floating">Zipcode</ion-label>
+            <ion-input class="item" formControlName="zipcode"></ion-input>
+            <ion-icon class="inputfields" slot="start" name="home"></ion-icon>
+        </ion-item>
+         -->
+        <!-- <ion-item lines="none" class="select">
+            <ion-icon class="label" slot="start" name="globe-outline"></ion-icon>
+            <ion-select placeholder="Please select your Zipcode" formControlName="zipcode" mode="ios" required>
+                <ion-select-option *ngFor="let pincode of app.state.pincodes" [value]="pincode.value">{{pincode.value}}</ion-select-option>
+            </ion-select>
+        </ion-item> -->
+        <ion-item lines="none">
+            <ion-label position="floating">Zipcode</ion-label>
+            <ion-input class="item" formControlName="zipcode" style="text-transform: capitalize;" required></ion-input>
+            <ion-icon class="inputfields" slot="start" name="globe-outline"></ion-icon>
+            <!-- <ion-select placeholder="Please select your Zipcode" formControlName="zipcode" mode="ios" required>
+                <ion-select-option *ngFor="let pincode of app.state.pincodes" [value]="pincode.value">{{pincode.value}}</ion-select-option>
+            </ion-select> -->
+        </ion-item>
+        <div *ngIf="billingform.controls.zipcode.invalid  && isSubmit" class="error">
+            Please enter zipcode
+        </div>        
+    </form>
+    <div class="go-back-outer">
+        <div class="save-btn"(click)="save()">
+            Save
+        </div>
+        <div class="go-btn" *ngIf="isFromCheckout" (click)="gotoCheckout()">
+            Go Back
+        </div>
+    </div>
+</ion-content>

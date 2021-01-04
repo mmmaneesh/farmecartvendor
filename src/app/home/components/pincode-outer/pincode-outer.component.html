@@ -1,0 +1,7 @@
+<div class="pincode-outer">
+    <div class="form-box form-group">
+        <label class="text-center">Please Enter Your Pincode</label>
+        <input name="pincode" class="input form-control text-center" type="tel" [(ngModel)]="pincode" (keydown)="onlynumber($event)" placeholder="111111" />
+        <button type="submit" class="text-center mt-3 signup-btn btn btn-default btn-lg" (click)="save()">Submit</button>
+    </div>
+</div>

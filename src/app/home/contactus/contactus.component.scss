@@ -1,0 +1,40 @@
+.form-outer {
+    padding: 5%;
+
+    .form {
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #b3b3b3;
+            text-align: center;
+            padding: 10px 0 10px 0;
+        }
+
+        textarea {
+            width: 100%;
+            border: 1px solid #b3b3b3;
+            color: #999898;
+            margin-top: 20px;
+            padding: 5px;
+        }
+
+    }
+}
+
+.submit-button-outer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    .submit-button {
+        background: var(--primary-color);
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 1px;
+        width: 150px;
+        font-size: 18px;
+        border-radius: 20px;
+        text-align: center;
+       padding: 10px;
+
+    }
+}
