@@ -61,9 +61,9 @@ export class BillingAddressComponent implements OnInit {
       this.utility.loader('Please wait ...');
 
 
-      this.app.api.updateProfile({name: data.firstname + " " + data.lastname, primary_email: data.email, id : this.app.state.user.id}).subscribe(res => {
+      this.app.api.updateProfile({name: data.firstname, primary_email: data.email, id : this.app.state.user.id}).subscribe(res => {
         if(res && res.status == 'success') {
-         this.app.state.user.display_name = data.firstname + " " + data.lastname;
+         this.app.state.user.display_name = data.firstname;
          this.app.state.user.primary_email = data.email;
          this.app.state.set('user', this.app.state.user);
         } 

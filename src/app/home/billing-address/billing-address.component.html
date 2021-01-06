@@ -27,7 +27,7 @@
 
         <ion-item lines="none">
             <ion-label position="floating">Email Address</ion-label>
-            <ion-input formControlName="email" style="text-transform: lowercase;" readonly></ion-input>
+            <ion-input formControlName="email" style="text-transform: lowercase;"></ion-input>
             <ion-icon class="inputfields" name="mail" slot="start"></ion-icon>
         </ion-item>
         <div *ngIf="billingform.controls.email.invalid  && isSubmit" class="error">
@@ -36,7 +36,7 @@
 
         <ion-item lines="none">
             <ion-label position="floating">Phone Number</ion-label>
-            <ion-input class="item" formControlName="number" type="tel" readonly></ion-input>
+            <ion-input class="item" formControlName="number" type="tel"></ion-input>
             <ion-icon class="inputfields" slot="start" name="phone-portrait"></ion-icon>
 
         </ion-item>

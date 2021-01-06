@@ -41,7 +41,7 @@ export class SmsReceiverService {
 
   processSMS(message) {
     if (message && message.search('Farmecart') != -1) {
-      this.OTP = message.substring(23,27);
+      this.OTP = message.substring(30,34);
     }
   }
 }

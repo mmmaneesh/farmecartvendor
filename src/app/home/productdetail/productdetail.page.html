@@ -32,12 +32,12 @@
                 <label>M.R.P : </label><span><s><i class="fa fa-rupee"></i>{{product.regular_price | number:'1.2'}}</s></span>
             </div>
             <div class="product-price">
-                <label>Price : </label><span><i class="fa fa-rupee"></i>{{(product.sale_price)  | number:'1.2'}}</span><small *ngIf="deliveryCharge"> + <i class="fa fa-rupee"></i> {{deliveryCharge}} Delivery charge</small>
+                <label>Price : </label><span><i class="fa fa-rupee"></i>{{(product.sale_price)  | number:'1.2'}}</span>
             </div>
             <div class="product-quantity">
                 <label>Stock Qty</label>
                 <button (click)="decQty()">-</button><input class="text-qty" [(ngModel)]="qty" type="tel" value="1" step="1" readonly ><button (click)="incQty()" >+</button>
-                <span *ngIf="!isInStock(product)" class="error">Out of stock</span>
+                <ion-button (click)="updateStockQty()">Update Qty</ion-button>
             </div>       
         </div>
     </div>

@@ -63,8 +63,12 @@ export class ApiService {
     return this.restApi.post('/update-profile', data);
   }
 
+  updateStockQty(data) {
+    return this.restApi.post('/update-stock-qty', data);
+  }
+
   updateBillingAddress(data) {
-    return this.restApi.post('/update-billing-address', data);
+    return this.restApi.post('/update-vendor-billing-address', data);
   }
 
   updateShippingAddress(data) {
