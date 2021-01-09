@@ -25,6 +25,7 @@ import { Ionic4DatepickerModule } from "@logisticinfotech/ionic4-datepicker";
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { BgImgDirective } from '../bg-img.directive';
 import { CategoriesComponent } from './categories/categories.component';
+import { RequestComponent } from './request/request/request.component';
 
 
 
@@ -33,7 +34,7 @@ import { CategoriesComponent } from './categories/categories.component';
     DashboardComponent, OrderDetailComponent,MyProfileComponent,UserProfileComponent,BillingAddressComponent,
     CartIconComponent, WhatsappIconComponent, PincodeOuterComponent, 
     ChangePincodeComponent, HeartComponent, ContactusComponent, CategoryWiseComponent, ReviewsPage, 
-    BgImgDirective, CategoriesComponent   ],
+    BgImgDirective, CategoriesComponent, RequestComponent   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

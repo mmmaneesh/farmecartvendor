@@ -7,7 +7,7 @@
                     <ion-title routerLink="/home" routerLinkActive="active" routerDirection="forward"
                     detail="false">
                     <!-- <ion-icon name="home-outline"></ion-icon><ion-label>Home</ion-label> -->
-                    FARMECART</ion-title>
+                    farmeseller</ion-title>
                 </ion-toolbar>
             </ion-menu-toggle>
         </ion-header>
@@ -61,7 +61,16 @@
                         </ion-thumbnail> -->
                         <ion-icon slot="start" name="alarm-outline"></ion-icon>
                         <ion-label>
-                            My Orders (History)
+                            My Orders
+                        </ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle autoHide="false">
+                    <ion-item routerLink="/home/myRequest" routerLinkActive="active" routerDirection="forward"
+                        detail="false">
+                        <ion-icon slot="start" name="hand-left-outline"></ion-icon>
+                        <ion-label>
+                            My Requests
                         </ion-label>
                     </ion-item>
                 </ion-menu-toggle>
@@ -98,13 +107,12 @@
                 <ion-buttons slot="start">
                     <ion-menu-button></ion-menu-button>
                 </ion-buttons>
-                <ion-title routerLink="/home" class="title">FARMECART</ion-title>
+                <ion-title routerLink="/home" class="title">farmeseller</ion-title>
                 <div slot="end" class="d-flex align-items-center">
                     <ion-icon name="mic" (click)="speechCheck()" class="mic-icon"></ion-icon>                     
                     <div class="profile-icon" routerLink="/home/myProfile" large>
                         <ion-icon name="person-outline"></ion-icon>
                     </div>
-                    <app-cart-icon></app-cart-icon>
                 </div>
                 <!-- <ion-list *ngIf="speechArray.length > 0">
                     <ion-item *ngFor="let srchPrdct of speechArray">{{srchPrdct}}</ion-item>

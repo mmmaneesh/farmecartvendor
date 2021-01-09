@@ -25,6 +25,10 @@
                     <td>Order total</td>
                     <td>Rs {{order.total}}</td>
                 </tr>
+                <tr>
+                    <td>Order barcode</td>
+                    <td class="bar-code"><ion-img [src]="order.line_items[0].courier_details.bar_code_img_data"></ion-img></td>
+                </tr>
             </table>
 
             <table class="table center-all listed">
@@ -59,24 +63,24 @@
     <h4>Payment Information</h4>
     <div class="card p-2">
         <div class="d-flex" style="justify-content: space-between;">
-            <p>Payment Method</p>
-            <p *ngIf="order.payment_method==='cod'">Cash On Deleviry</p>
+            <p>Payment Status</p>
+            <p>Pending</p>
         </div>
-        <div style="border-top: 1px solid #ccc;">
+        <!-- <div style="border-top: 1px solid #ccc;">
             <p>Billing Address</p>
             <p>{{billingAddress.firstname}} {{billingAddress.lastname}}</p>
-            <p>{{billingAddress.address}} {{billingAddress.number}}</p>
+            <p>{{billingAddress.address_1}} {{billingAddress.phone}}</p>
             <p>{{billingAddress.city}}</p>
             <p>{{billingAddress.country}}</p>
-            <p>{{billingAddress.zipcode}}</p>
-        </div>
+            <p>{{billingAddress.postcode}}</p>
+        </div> -->
     </div>
 
 
     <h4>Shipping Address</h4>
     <div class="card p-2">
         <p>{{shippingAddress.firstname}} {{shippingAddress.lastname}}</p>
-        <p>{{shippingAddress.address}} {{shippingAddress.zipcode}} <br/> Ph: {{shippingAddress.number}}</p>
+        <p>{{shippingAddress.address_1}} {{shippingAddress.postcode}} <br/> Ph: {{shippingAddress.phone}}</p>
     </div>
 
     <h4>Order Summary</h4>

@@ -13,6 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BillingAddressComponent } from './billing-address/billing-address.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { RequestComponent } from './request/request/request.component';
 
 
 const routes: Routes = [
@@ -62,6 +63,11 @@ const routes: Routes = [
       {
         path: 'myProfile',
         component: MyProfileComponent
+      },
+
+      {
+        path: 'myRequest',
+        component: RequestComponent
       },
       {
         path: 'billingaddress',

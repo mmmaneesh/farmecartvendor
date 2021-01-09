@@ -18,9 +18,9 @@ export class OrderDetailComponent implements OnInit {
   constructor(public navCtrl: NavController, public navigator: NavigatorService,public app: AppService, public restApi: RestApiService) { }
 
   ngOnInit() {
-    this.billingAddress=this.app.state.detail.billing_address;
-    this.shippingAddress=this.app.state.detail.shipping_address;
     this.order = this.navigator.navigationData;
+    this.billingAddress=this.order.billing;
+    this.shippingAddress=this.order.shipping;
     if(typeof this.order.id == 'undefined') {
       this.home();
     }

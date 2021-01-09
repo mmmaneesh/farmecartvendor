@@ -18,7 +18,7 @@ export class OrderHistoryComponent implements OnInit {
 
   ngOnInit() {
     this.fetchingProducts = true;
-    this.app.api.getOrders({customer: this.app.state.user.id}).subscribe(res => {
+    this.app.api.getOrders({vendor: this.app.state.user.id}).subscribe(res => {
       this.orders = res.data;
       this.fetchingProducts = false;
     });

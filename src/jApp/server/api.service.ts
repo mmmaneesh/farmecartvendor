@@ -76,8 +76,8 @@ export class ApiService {
   }
 
   getOrders(data) {
-    let customer = data.customer;
-    return this.restApi.get('/getOrders?customer='+ customer);
+    let vendor = data.vendor;
+    return this.restApi.get('/getOrders?vendor='+ vendor);
   }
 
   getPincodes() {
