@@ -56,7 +56,6 @@
 
         </div>
         <h5 style="color: green;">Status: {{(order.status == 'on-hold') ? 'Pending Approval' : order.status}}</h5>        
-        <button *ngIf="order.status == 'on-hold'" class="btn btn-danger" (click)="cancelOrder()">Cancel Order</button>
     </div>
 
 

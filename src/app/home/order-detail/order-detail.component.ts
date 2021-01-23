@@ -38,20 +38,4 @@ export class OrderDetailComponent implements OnInit {
     this.navigator.navigationData = {order: this.order, product: data};
     this.navCtrl.navigateForward('home/ordertrack');
   }
-
-  cancelOrder() {
-    this.app.api.cancelOrder({order_id: this.order.id}).subscribe((res) => {
-        try{
-          if(res.status == 'success') {
-            this.app.utility.toast("Order cancelled");
-            this.order.status = 'cancelled';
-
-          } else {
-            this.app.utility.toast(res.message);
-          }
-        } catch(e) {
-          this.app.utility.toast("Something went wrong");
-        }
-    });
-  }
 }

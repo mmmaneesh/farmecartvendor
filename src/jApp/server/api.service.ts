@@ -63,6 +63,10 @@ export class ApiService {
     return this.restApi.post('/update-profile', data);
   }
 
+  addRequest(data) {
+    return this.restApi.post('/add-vendor-request', data);
+  }
+
   updateStockQty(data) {
     return this.restApi.post('/update-stock-qty', data);
   }
@@ -79,6 +83,11 @@ export class ApiService {
     let vendor = data.vendor;
     return this.restApi.get('/getOrders?vendor='+ vendor);
   }
+
+  getRequests(data) {
+    let vendor = data.vendor;
+    return this.restApi.get('/getRequests?vendor='+ vendor);
+  } 
 
   getPincodes() {
     return this.restApi.get('/get-pincodes');

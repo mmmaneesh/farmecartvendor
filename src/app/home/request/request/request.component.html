@@ -5,4 +5,30 @@
   <ion-title>My Requests</ion-title>
 </ion-toolbar>
 <ion-content>
+  <div class="wrap-btn"><ion-button (click)="showForm=true;">Add Request</ion-button></div>  
+  <form class="requestForm" [formGroup]="requestForm" *ngIf="showForm">
+    <ion-item lines="none">
+        <ion-label position="floating">Title</ion-label>
+        <ion-input formControlName="title" style="text-transform: capitalize;"></ion-input>
+        <ion-icon class="inputfields" slot="start"name="browsers-outline"></ion-icon>
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea rows="4" class="item" formControlName="description"></ion-textarea>
+        <ion-icon class="inputfields" slot="start" name="albums-outline"></ion-icon>
+    </ion-item>
+    <div class="d-flex justify-content-center mt-4">
+        <button type="submit " class="text-center signup-btn btn btn-default btn-lg" (click)="save()">Save</button>
+    </div>
+  </form>
+  
+  <ion-list *ngIf="requests">
+    <ion-item *ngFor="let request of requests">
+      <ion-label>
+        <h3>{{request.title}}</h3>
+        <p>{{request.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,33 @@
+.wrap-btn {
+    display: flex;
+    justify-content: center;
+}
+.inputfields {
+    margin: 7px 10px 0px 0px;
+    padding-top: 12%;
+    color: var(--primary-color);
+}
+ion-input, ion-textarea {
+    border: none;
+}
+.label {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+ion-input, ion-textarea{
+    border-bottom: 2px solid #ccc;
+}
+.requestForm{
+    margin: 10px 30px 26px 0px;
+
+
+}
+.select{
+    margin-top: 7%;
+}
+ion-select{
+    min-width: 100%;
+    border-bottom: 2px solid #ccc;
+
+}
