@@ -38,7 +38,7 @@ export class OneSignalService {
         // });
 
         // this.oneSignal.endInit();
-        this.utility.toast('one signal in ');
+        //this.utility.toast('one signal in ');
         this.oneSignal.startInit('e3fbb154-a2ee-4e3c-9372-611805246f22', '360978708868'); // import APP ID and Project Number
         this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
         this.oneSignal.setSubscription(true);
@@ -46,17 +46,17 @@ export class OneSignalService {
           this.playerid = deviceid.userId;
           this.app.state.set('playerid', deviceid.userId);
           this.app.updateOneSignalId(deviceid.userId);
-          this.utility.toast('one signal dev ' + deviceid.userId);
+          //this.utility.toast('one signal dev ' + deviceid.userId);
         });
   
         this.oneSignal.handleNotificationReceived().subscribe((res: any) => {
-          console.log('handleNotificationReceived',res);
-          this.utility.toast('handleNotificationReceived ' + res);
+          //console.log('handleNotificationReceived',res);
+          //this.utility.toast('handleNotificationReceived ' + res);
         });
   
         this.oneSignal.handleNotificationOpened().subscribe((data: any) => {
-          console.log('handleNotificationOpened',data);
-          this.utility.toast('handleNotificationOpened ' + data);
+          //console.log('handleNotificationOpened',data);
+          //this.utility.toast('handleNotificationOpened ' + data);
         });
   
         this.oneSignal.endInit();
