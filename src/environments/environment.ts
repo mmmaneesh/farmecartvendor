@@ -4,9 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 export const environment = {
   production: false,
-  //domain:'https://farmecart.in',
+  domain:'https://farmecart.com',
   //domain:'http://farme.syntrio.in',
-  domain:'http://127.0.0.1:8000',
+  //domain:'http://127.0.0.1:8000',
   //courierApi: 'http://ec2-15-207-223-223.ap-south-1.compute.amazonaws.com:8081/api/v1/order/',
   courierApi: 'http://track.ctracksystems.com/TrackingService.svc/jtsv/TrackDetails/',
   courierApiUrl: 'http://testapi.ctracksystems.com',

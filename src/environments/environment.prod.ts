@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  domain:'https://farmecart.in',
+  domain:'https://farmecart.com',
   //domain:'http://farme.syntrio.in',
   //courierApi: 'http://ec2-15-207-223-223.ap-south-1.compute.amazonaws.com:8081/api/v1/order/',
   courierApi: 'http://track.ctracksystems.com/TrackingService.svc/jtsv/TrackDetails/',
