@@ -18,7 +18,8 @@ export class SigninComponent implements OnInit {
   intro = true;
   constructor(public navCtrl: NavController, public utility: UtilityService, public navigator: NavigatorService, private smsReader: SmsReceiverService,
     public app: AppService, public OneSignal: OneSignalService, public api: ApiService, public sms: SmsService) { }
-
+  
+  custDate = new Date();
   ngOnInit() {
     setTimeout(() => {
       this.intro = false;
@@ -74,9 +75,11 @@ export class SigninComponent implements OnInit {
 
       let message = "";
       if (this.smsReader.hash == null) {
-        message = "Farmecart vendor login otp is " + this.signin.otp;
+        //message = "Farmecart vendor login otp is " + this.signin.otp;
+        message= "Dear%20Vendor%2C%20%0A%0AYour%20OTP%20for%20login%20to%20Farmecart%20App%20is%20"+ this.signin.otp +".%20%0A%0ARegards%2C%0ATeam%20Farmecart";
       } else {
-        message = "Farmecart vendor login otp is " + this.signin.otp + "%0a<" + this.smsReader.hash + '>';
+        message= "Dear%20Vendor%2C%20%0A%0AYour%20OTP%20for%20login%20to%20Farmecart%20App%20is%20"+ this.signin.otp + "%0A<" + this.smsReader.hash + '>' + ".%20%0A%0ARegards%2C%0ATeam%20Farmecart";
+       // message = "Farmecart vendor login otp is " + this.signin.otp + "%0a<" + this.smsReader.hash + '>';
       }
 
       this.sms.send(this.signin.mobile, message).subscribe(res => {
